@@ -1,0 +1,14 @@
+.col.s2.square {
+   height: 25vh;
+   background-color: #11bbcc;
+    border-width:10px ;
+    border-color: black;
+    font-size: 40px;
+    font-weight: bold;
+}
+h2{
+    text-align: center;
+}
+#reset1.col.s2 {
+    background-color: #BB8833;
+}
