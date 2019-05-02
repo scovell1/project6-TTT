@@ -81,7 +81,7 @@ class Square {
         board.changeTurns();
         board.drawBoard();
         }else{
-            document.querySelector("#infoLine").innerHTML = "This space is occupied. Pick again."
+            document.querySelector("#infoLine").innerHTML = "This space is occupied. Please pick again."
         }
     }
     getXorO(){
