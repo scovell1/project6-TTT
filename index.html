@@ -11,33 +11,15 @@
         <br>
         <h2 id = "infoLine">Welcome to TIC TAC TOE</h2>
         <container id = "buttons">
-            <div class = "row">
-                <div class = "col s3"></div>
-                <button id = "button1" class = " col s2 square" value = "0" >  </button>
-                <button id = "button2" class = " col s2 square" value = "1"></button>
-                <button id = "button3" class = " col s2 square" value = "2"></button>
-                <div class = "col s1"></div>
-                </div>
-                <div class = "row">
-                <div class = "col s3"></div>
-                <button id = "button4" class = " col s2 square" value = "3"></button>
-                <button id = "button5" class = " col s2 square" value = "4"></button>
-                <button id = "button6" class = " col s2 square" value = "5"></button>
-                <div class = "col s1"></div>
-                </div>
-                <div class = "row">
-                <div class = "col s3"></div>
-                <button id = "button7" class = " col s2 square" value = "6"></button>
-                <button id = "button8" class = " col s2 square" value = "7"></button>
-                <button id = "button9" class = " col s2 square" value = "8"></button>
-                <div class = "col s3"></div>
-                </div>
-<br>
-                <div class = "row">
-                    <div class = "col s5"></div>
-                    <button id = "reset1" class = "col s2 reset1">reset</button> 
-                    <div class = "col s5"></div>
-                </div>
+            <div class = "grid-container">
+                <h3>Choose one:</h3>
+                <ul>
+                    <li><a href = "TTTboard.html" id = "person" class = "compOrPerson" >Play against a person</a></li>
+                    <li><a href = # id = "computer" class = "compOrPerson" >Play against the computer</a><ul>
+                        <li><a href = "TTTboard.html" id = "beginner" class = "modeHide">Beginner</a></li>
+                        <li><a href = "TTTboard.html" id = "intermediate" class = "modeHide">Intermediate</a></li>
+                    </ul></li>
+                </ul>
                
         </container>
         <script src="script.js"></script>
