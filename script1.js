@@ -125,7 +125,7 @@ function selectSquare(squareSelected){
     if (squareSelected == null && opponent == "computer"){
         if (mode == "beginner"){
         squareSelected = makeMoveBeginner();
-        }else if (mode == "intermediate"){
+        }else if (mode == "intermediate" || mode == "expert"  ){
           squareSelected = makeMoveIntermediate();  
         }
     }
@@ -144,9 +144,13 @@ function selectSquare(squareSelected){
         console.log(board)
     if (board.getWhoseTurn() && !gameOver && opponent == "computer"){selectSquare(null)}
 }
-
-
-
+function makeMoveExpert(){
+    if ((board.squareArray[0].getXorO() == "O" && board.squareArray[4].getXorO() == "X" && board.squareArray[8].getXorO() == "O" && board.squaresFilled == 3)|| (board.squareArray[2].getXorO == "O" && board.squareArray[4].getXorO() == "X" && board.squareArray[6].getXorO() == "O" && board.squaresFilled == 3))
+    {const Noncorners = [1,3,5,7];
+    return Noncorners[Math.floor(Math.random() * Noncorners.length)]
+    }
+    
+}
 function makeMoveIntermediate(){
     for (var i = 0;i<9;i++){
         if (board.squareArray[i].isEmpty()){
@@ -169,6 +173,10 @@ function makeMoveIntermediate(){
     if (board.squareArray[4].isEmpty()){ //take middle if open
         return 4;
     }else{
+        if (mode == "expert"){var expertMove = makeMoveExpert();
+            if (expertMove){
+                return expertMove
+            }
         const corners = [0,2,6,8];
         var emptyCornerArray = new Array;
         corners.forEach(function(item){if (board.squareArray[item].isEmpty())
@@ -181,35 +189,28 @@ function makeMoveIntermediate(){
             middles.forEach(function(item){if (board.squareArray[item].isEmpty()){emptyMiddles.push(item);}}
             );return emptyMiddles[Math.floor(Math.random() * emptyMiddles.length)]}
         }
-    
+    }
 }
-    
-
 function makeMoveBeginner(){
     let counter = 0;
-    do{
-        counter++;
+    do{counter++;
     randomSquare =  Math.floor(Math.random()*9);
-    console.log("---")
-    console.log(randomSquare)
     if (board.squareArray[randomSquare].isEmpty()){
         return randomSquare;}
     }while (!board.squareArray[randomSquare].isEmpty() && counter <30)
 }
 function setUp(){
     window.onload = function(){
-    board = new Board();
-    console.log(board)
-    myReset = document.getElementById("reset1");
-    myReset.addEventListener("click",reset1,false);
-    squares = document.querySelectorAll(".square");
-    for (var i = 0;i<9;i++){
-        squares[i].addEventListener('click', function(){selectSquare(this.value)}, false);
-        squares[i].addEventListener('mouseover', function(){this.style.backgroundColor = "#AA0000";}, false);
-        squares[i].addEventListener('mouseout', function(){this.style.backgroundColor = " #11bbcc";}, false);
-    }
-    
-    //sendApiRequest();
+        board = new Board();
+        console.log(board)
+        myReset = document.getElementById("reset1");
+        myReset.addEventListener("click",reset1,false);
+        squares = document.querySelectorAll(".square");
+        for (var i = 0;i<9;i++){
+            squares[i].addEventListener('click', function(){selectSquare(this.value)}, false);
+            squares[i].addEventListener('mouseover', function(){this.style.backgroundColor = "#AA0000";}, false);
+            squares[i].addEventListener('mouseout', function(){this.style.backgroundColor = " #11bbcc";}, false);
+        }
     };
 }
 let opponent = localStorage["cOrP"];

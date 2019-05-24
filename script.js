@@ -8,6 +8,8 @@ function main(){
     chooseModeB.addEventListener('click', function(){localStorage["cOrP"] = "computer";localStorage["mode"] = "beginner";});
     chooseModeI = document.querySelector("#intermediate");
     chooseModeI.addEventListener('click', function(){localStorage["cOrP"] = "computer";localStorage["mode"] = "intermediate";});
+    chooseModeE = document.querySelector("#expert");
+    chooseModeE.addEventListener('click', function(){localStorage["cOrP"] = "computer";localStorage["mode"] = "expert";});
 }
 function showIt(){
     modeList = document.querySelectorAll(".modeHide");
